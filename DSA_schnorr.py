@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 16 23:23:32 2026
-
-@author: wangyunong
-"""
-
 from cryptography.hazmat.primitives.asymmetric import dsa
 from schnorr_signature import SchnorrSignature
 
