@@ -125,3 +125,34 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+OUTPUT:
+=== Schnorr Signature Scheme Demo ===
+
+1. Generating key pair...
+   Private key (x): 0x357c69ff40523edb5d...
+   Public key (y):  0xf35001975ffb7d1343...
+
+2. Signing message: WELCOME TO BAOTOU
+   Signature e: 0xf45004061347000964...
+   Signature s: 0xc14d9d255d18f5976b...
+
+3. Verifying signature...
+   Signature valid: True
+
+4. Verifying with tampered message...
+   Signature valid: True
+
+5. Verifying with different public key...
+   Signature valid: False
+
+6. Creating multiple signatures of same message...
+   Signature 1 == Signature 2: False
+   (Note: Different each time due to random r)
+
+   Both signatures valid:
+     Sig 1: True
+     Sig 2: True
+
