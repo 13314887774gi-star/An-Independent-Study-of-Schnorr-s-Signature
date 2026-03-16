@@ -25,3 +25,6 @@ message = b"Hello"
 signature = schnorr.sign(message, private_key)
 
 print(schnorr.verify(message, public_key, signature))
+
+OUTPUT:
+TRUE
