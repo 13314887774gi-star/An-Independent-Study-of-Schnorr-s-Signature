@@ -74,7 +74,6 @@ class SchnorrSignature:
 
 
 def main():
-    """Demonstrate Schnorr signature scheme usage."""
     
     print("=== Schnorr Signature Scheme Demo ===\n")
     
