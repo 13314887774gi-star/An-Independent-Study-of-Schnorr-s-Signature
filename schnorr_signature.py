@@ -42,16 +42,16 @@ class SchnorrSignature:
     
     def sign(self, message: bytes, private_key: int) -> Tuple[int, int]:
 
-        # Step 1: Choose random r in [1, q-1]
+        # Choose random r in [1, q-1]
         r = secrets.randbelow(self.q - 1) + 1
         
-        # Step 2: Compute commitment t = g^r mod p
+        #  Compute commitment t = g^r mod p
         t = pow(self.g, r, self.p)
         
-        # Step 3: Compute challenge e = H(t || message)
+        #  Compute challenge e = H(t || message)
         e = self._hash_challenge(t.to_bytes((self.p.bit_length() + 7) // 8, byteorder='big') + message)
         # "+7" here because we need to round up.
-        # Step 4: Compute response s = r + e*x mod q
+        #  Compute response s = r + e*x mod q
         s = (r + e * private_key) % self.q
         
         return e, s
@@ -60,16 +60,16 @@ class SchnorrSignature:
 
         e, s = signature
         
-        # Step 1: Compute t = g^s * y^(-e) mod p
+        #  Compute t = g^s * y^(-e) mod p
         # This is equivalent to: g^s * (g^x)^(-e) = g^(s - e*x) = g^(r + e*x - e*x) = g^r
         gs = pow(self.g, s, self.p)
         y_inv_e = pow(public_key, self.p - 1 - e, self.p)  # y^(-e) using Fermat's little theorem
         t = (gs * y_inv_e) % self.p
         
-        # Step 2: Compute e' = H(t || message)
+        #  Compute e' = H(t || message)
         e_prime = self._hash_challenge(t.to_bytes((self.p.bit_length() + 7) // 8, byteorder='big') + message)
         
-        # Step 3: Check if e' == e
+        #  Check if e' == e
         return e_prime == e
 
 
