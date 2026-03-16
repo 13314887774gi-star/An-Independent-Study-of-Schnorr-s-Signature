@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 16 21:42:29 2026
-
-@author: wangyunong
-"""
-
 """
 Schnorr Signature Scheme Implementation
 
