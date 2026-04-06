@@ -56,7 +56,7 @@ print(f"Signature valid: {is_valid}")  # True
  - Compute response $s = r + e·x \bmod q$
  - Signature: $(e, s)$
 ## Verification
- - Compute $t = g^s · y^(-e) \bmod p$
+ - Compute $t = g^s · y^{(-e)} \bmod p$
  - Compute $e' = H(t \mid\mid message)$
  - Accept if $e' == e$
 
