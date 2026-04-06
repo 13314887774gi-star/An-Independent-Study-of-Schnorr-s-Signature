@@ -1,9 +1,3 @@
-"""
-Schnorr Signature Scheme Implementation
-
-A secure and efficient digital signature scheme based on discrete logarithm problem.
-"""
-
 import hashlib
 import secrets
 from typing import Tuple
